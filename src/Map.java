@@ -21,10 +21,11 @@ public class Map {
             {27,28,32,36,18},  {26,28,33,34,35,36},  {26,27,32,34},  {31,33,35,37},  {31,33},  {29,30,33,36},  {26,28,18,17,22,21},  {27,29,30,31,35},  {27,28,39},  {27,29,33,36,37}, {26,27,35,18}, {29,31,35},
             {40,41},  {40,41,34},  {38,39,41},  {38,39,40}
             };
-    public Map(List<Player> Players, int noOfUnitsPerPlayer){
+
+    public Map(List<Player> Players, int noOfUnitsPerPlayer, int numOfPlayers){
         this.players = Players;
         regions = new LinkedList<>();
-        generateMap(this.players, noOfUnitsPerPlayer);
+        generateMap(this.players, noOfUnitsPerPlayer, numOfPlayers);
     }
 
     public List<Region> getRegions() {
@@ -34,11 +35,10 @@ public class Map {
     public void addRegion(Region newRegion){
         regions.add(newRegion);
     }
-
-    private void generateMap(List<Player> players, int noOfUnitsPerPlayer){
+// break into smaller functions
+    private void generateMap(List<Player> players, int noOfUnitsPerPlayer, int numOfPlayers){
         Random rand = new Random();
         int playerChosen;
-
         int numOfTroops;
         int location;
         int totalTroops = noOfUnitsPerPlayer * players.size();
