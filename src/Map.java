@@ -64,10 +64,7 @@ public class Map {
     public String toString() {
         String returnString = "World Layout: \n";
         for (Territory t :territories){
-            returnString += t.getName() + "Owned by: " + t.getOwner().getName() + "Has " + t.getNumUnits() + " Units" + "\n Has Neighbors :";
-            for (Territory n: t.getNeighbors()) {
-                returnString += "  " + n.getName();
-            }
+            returnString += t.toString();
             returnString += "\n";
         }
 
